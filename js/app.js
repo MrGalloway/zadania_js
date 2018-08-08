@@ -163,13 +163,17 @@ console.log(filter([1, 2, "trzy", 4, "😏"], function(e) {
 
 // ZADANIE 11
 let oddStrings = (array) => {
-	let numbersArray = filter(array, function tru(element) {
-		return parseInt(element) % 2 !== 0 && !isNaN(parseInt(element));
-		//checks if:
-		//1. parseint of the element is odd
-		//2. the parsed element is a number
-	});
+	let mapFunction;
+	let filterFunction;
+	
+	let newArray = map(array, fun = (element) => parseInt(element));
 
-	return map(numbersArray, (element) => parseInt(element));
+	return filter(newArray, filterFunction = (element) => !isNaN(element) && (element % 2) !== 0);
+	//checks if:
+	//1. the parsed element is a number
+	//2. the element is odd
+	//
+	//TODO: how to name these anonymous functions?
 }
+
 console.log(oddStrings([7, 4, "3", 6, 3, "trzy", 2]));
